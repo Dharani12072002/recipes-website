@@ -7,6 +7,36 @@
         </span>
     </div>
 </div>
+<div class="row pt-4 pb-4 home-dashboard-header">
+  <div class="col-2">
+    <!-- <span class="pt-1 pb-1 back-button" (click)="onBackClick()">
+      <mat-icon class="back-button-icon" style="vertical-align: middle; font-size: 20px;">chevron_right</mat-icon>
+      <span class="back-button-text">Back</span>
+  </span> -->
+  </div>
+  <div class="col-4 p-0">
+      <span class="title">Simply Delicious</span>
+  </div>
+  <div class="col d-flex">
+      <div class="pages-url pt-1" (click)="onBackClick()">HOME</div>
+      <!-- <div class="pages-url pt-1" (click)>ABOUT</div> -->
+      <div class="pages-url pt-1" (click)="onSearchAllRecipes()">RECIPES</div>
+      <!-- <div class="pages-url pt-1">START HERE</div> -->
+  </div>
+</div>
+<div class="row pt-4 pb-3 search-filter-content">
+  <div class="col"></div>
+  <div class="col-5 search-container">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input placeholder="Search our recipes" class="search-box" (keyup.enter)="onSearch()" [formControl]="searchRecipe">
+    <mat-icon *ngIf="searchRecipe.value != null" class="close-icon" (click)="onBackClick()">close</mat-icon>
+  </div>
+  <!-- <div class="col">
+      <input placeholder="Seach our recipes" class="search-box" (keyup.enter)="onSearch()" [formControl]="searchRecipe">
+      <mat-icon>close</mat-icon>
+  </div> -->
+  <div class="col"></div>
+</div>
 <div class="row">
   <div class="col p-0">
     <router-outlet></router-outlet>

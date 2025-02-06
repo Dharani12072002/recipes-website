@@ -15,13 +15,9 @@ export class RecipeDashboardService {
         this.http.get(`https://api.edamam.com/search?q=pizza&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=1&cuisineType=${cuisine}`,)
         .subscribe({
           next: (res: any)=> {
-            if(res['messType']== 'E'){
-              // this.showMessage("Your Search didn't match any questions!","dismiss", 2000);
-            }
             return resolve(res)
           },
           error: (err)=>{
-            // this.showMessage("Error! Your Search didn't match any questions!","dismiss", 2000);
             return reject(err)}
         }
         )
@@ -39,17 +35,12 @@ export class RecipeDashboardService {
         if (type == 'dishType'){
           url = `https://api.edamam.com/search?q=''&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20&${type}=${params}`
         }
-        // search `https://api.edamam.com/search?q=pizza&2.0${params}&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20`
         this.http.get(url,)
         .subscribe({
           next: (res: any)=> {
-            if(res['messType']== 'E'){
-              // this.showMessage("Your Search didn't match any questions!","dismiss", 2000);
-            }
             return resolve(res)
           },
           error: (err)=>{
-            // this.showMessage("Error! Your Search didn't match any questions!","dismiss", 2000);
             return reject(err)}
         }
         )
@@ -63,16 +54,31 @@ export class RecipeDashboardService {
   getAllRecipeDetails(){
     try{
       return new Promise((resolve,reject)=>{
-        this.http.get(`https://api.edamam.com/search?q=pizza&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20&`,)
+        this.http.get(`https://api.edamam.com/search?q=pizza&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20`,)
         .subscribe({
           next: (res: any)=> {
-            if(res['messType']== 'E'){
-              // this.showMessage("Your Search didn't match any questions!","dismiss", 2000);
-            }
             return resolve(res)
           },
           error: (err)=>{
-            // this.showMessage("Error! Your Search didn't match any questions!","dismiss", 2000);
+            return reject(err)}
+        }
+        )
+      })
+    }
+    catch(err){
+      return Promise.reject(err);
+    }
+  }
+
+  getRecipeDataOnSearch(searchData: any){
+    try{
+      return new Promise((resolve,reject)=>{
+        this.http.get(`https://api.edamam.com/search?app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20&q=pizza,%20${searchData}`,)
+        .subscribe({
+          next: (res: any)=> {
+            return resolve(res)
+          },
+          error: (err)=>{
             return reject(err)}
         }
         )

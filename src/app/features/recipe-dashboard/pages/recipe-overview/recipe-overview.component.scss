@@ -42,7 +42,6 @@
 
     .search-results{
         height: 500px;
-        background: yellow;
     }
 
     .recipe-card{
@@ -84,10 +83,26 @@
             color: rgb(161 91 135);
         }
         .ellipsis {
-            white-space: nowrap;       /* Prevent text from wrapping */
-            overflow: hidden;          /* Hide overflowed text */
-            text-overflow: ellipsis;   /* Show "..." at the end */
-            width: 200px;              /* Set a fixed width */
+            white-space: nowrap;       
+            overflow: hidden;         
+            text-overflow: ellipsis;   
+            width: 200px;              
           }
+    }
+
+    .filter{
+        border: 2px solid rgb(175, 175, 175);
+        color: rgb(163, 161, 161);
+        border-radius: 8px;
+        text-transform: capitalize;
+        margin-left: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: 800;
+    }
+
+    .no-result-found{
+        height: 60vh;
+        width: 30vw;
     }
 }

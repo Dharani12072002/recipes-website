@@ -1,5 +1,5 @@
 <div class="container-fluid recipe-overview">
-    <div class="row border-bottom">
+    <!-- <div class="row border-bottom">
         <div class="col-1 pt-3 pb-3 pl-3">
             <span class="pt-1 pb-1 back-button" (click)="onBackClick()">
                 <mat-icon class="back-button-icon" style="vertical-align: middle; font-size: 20px;">chevron_right</mat-icon>
@@ -9,8 +9,20 @@
         <div class="col p-0 page-heading pt-3">
             Recipe Overview
         </div>
+    </div> -->
+    <div *ngIf="viewType == 'filter'" class="row pb-4" style="background-color: rgb(249 248 248);">
+        <div class="col d-flex justify-content-center">
+            <span class="mt-2 mr-3" style="font-weight: 600; color: rgb(115 64 96/var(--tw-bg-opacity, 1))">Filter Applied : </span> 
+            <span class="filter mt-1"><span>{{recipeName}}</span> <mat-icon class="pt-1" style="vertical-align: bottom; color: rgb(83, 82, 82); margin-left:10px; font-size: 20px; cursor: pointer" (click)="onBackClick()">close</mat-icon></span> 
+        </div>
     </div>
-    <div class="row">
+    <div *ngIf="viewType == 'all'" class="row pb-4" style="background-color: rgb(249 248 248);">
+        <div class="col d-flex justify-content-center">
+            <span class="mt-2 mr-3" style="font-weight: 600; color: rgb(115 64 96/var(--tw-bg-opacity, 1))">Filter Applied : </span> 
+            <span class="filter mt-1"><span>All</span> <mat-icon class="pt-1" style="vertical-align: bottom; color: rgb(83, 82, 82); margin-left:10px; font-size: 20px; cursor: pointer" (click)="onBackClick()">close</mat-icon></span> 
+        </div>
+    </div>
+    <div class="row" *ngIf="isToShowErrMessage">
         <div *ngFor="let recipeItem of recipeData" class="col-2 p-0 m-5 recipe-card" style="background-color: rgb(245 245 245 / 63%)" 
         (click)="onRecipeItemClick(recipeItem)">
             <div class="row">
@@ -25,13 +37,13 @@
                     </div>
                     <div class="row pt-3 recipe-cuisine">
                         <div class="col-6" style="color: #999292; padding-left: 25px">Cuisine</div>
-                        <div class="col p-0 ellipsis" [matTooltip]="recipeItem?.recipe?.cuisineType?.join(', ')" style="text-transform: capitalize;">
+                        <div class="col p-0 ellipsis" [matTooltip]="recipeItem?.recipe?.cuisineType?.join(', ')" style="text-transform: capitalize; margin-right: 20px;">
                             {{ recipeItem?.recipe?.cuisineType?.join(', ') }}
                         </div>
                     </div>
                     <div class="row recipe-meal-type">
                         <div class="col-6" style="color: #999292; padding-left: 25px">Meal Type</div>
-                        <div class="col p-0 ellipsis" [matTooltip]="recipeItem?.recipe?.mealType?.join(', ')" style="text-transform: capitalize;">
+                        <div class="col p-0 ellipsis pr-2" [matTooltip]="recipeItem?.recipe?.mealType?.join(', ')" style="text-transform: capitalize; margin-right: 20px;">
                             {{ recipeItem?.recipe?.mealType?.join(', ') }}
                         </div>
                     </div>
@@ -39,27 +51,14 @@
             </div>
         </div>
     </div>
-    <!-- <div class="row search-results"
-      infiniteScroll
-      [infiniteScrollDistance]="2"
-      [infiniteScrollThrottle]="50"
-      (scrolled)="onScroll()"
-    >
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-        <div>Hi</div>
-    </div> -->
+    <div *ngIf="isToShowErrMessage == false" class="row">
+        <div class="col d-flex justify-content-center">
+            <span>
+                <div><img class='no-result-found' src='https://static.vecteezy.com/system/resources/previews/007/104/553/original/search-no-result-not-found-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg'></div>
+                <div class="d-flex justify-content-center" style="color: rgb(185, 184, 184); color: rgb(97 90 90); font-size: 20px;">
+                    <span>No Results Found !</span>
+                </div>
+            </span>
+        </div>
+    </div>
 </div>

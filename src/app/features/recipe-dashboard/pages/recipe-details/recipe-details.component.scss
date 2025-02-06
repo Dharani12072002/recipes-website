@@ -44,6 +44,59 @@
         .header{
             font-size: 25px;
             font-weight: 1000;
+            color: rgb(96 8 63 / 73%);
         }
+    }
+
+    .image-content{
+        height: 30vh;
+    }
+
+    .dietery-labels{
+        font-size: 14px;
+        color: #444A54;
+    }
+
+    .ingredient{
+        .ingredient-image{
+            height: 40px;
+            width: 40px;
+        }
+        .ingredient-text{
+            padding-left: 15px;
+            color: #cd87bf;
+            font-weight: 800;
+            font-size: 20px;
+        }
+    }
+
+    .ellipsis {
+        white-space: nowrap;       
+        overflow: hidden;         
+        text-overflow: ellipsis;   
+        width: 450px;              
+    }
+
+    .balanced-diet-image{
+        height: 100px;
+        width: 120px;
+    }
+
+    .nutrient-label{
+        color: rgb(96 8 63 / 73%);;
+        font-weight: 800;
+        font-size: 19px;
+        padding-left: 10px;
+    }
+
+    .nutrient-image{
+        height: 50px;
+        width: 40px;
+    }
+
+    .all-nutrients{
+        background-color: rgb(234 233 233);
+        // border-radius: 7px;
+        border-top: 1px solid rgb(226, 225, 225);
     }
 }

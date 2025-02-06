@@ -1,22 +1,8 @@
 .recipe-dashboard{
     font-family: 'Courier New', monospace;
 
-    .home-dashboard-header{
-        border-bottom: 1px solid #DDC5D8;
-        .title{
-            color: rgb(115 64 96 / 73%);
-            letter-spacing: 3px;
-            font-size: 40px;
-            font-weight: 500;
-            // text-shadow: 2px 2px 5px rgb(216, 158, 195);
-            font-family: 'Brush Script MT', cursive;
-        }
-    }
-
-    .pages-url{
-        font-weight: 800;
-        padding-right: 50px;
-        letter-spacing: 2px;
+    .search-filter-content{
+        background-color: rgb(249 248 248);
     }
 
     .view-all-recipe{
@@ -34,20 +20,6 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    .search-box{
-        width: 100%;
-        height: 40px;
-    }
-
-    input{
-        border-radius: 5px;
-        border: 2px solid rgb(215, 212, 212) !important;
-        -webkit-transition: 0.5s;
-        transition: 0.5s;
-        outline: none;
-        height: 40px;
-    }
-
     .recipe-filter{
         border-radius: 100%;
         // border: 2px solid #DDC5D8;
@@ -55,6 +27,8 @@
         width: 100px;
         margin-right: 3%;
         cursor: pointer;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
+        // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .recipe-filter:hover{
@@ -64,7 +38,7 @@
         width: 100px;
         margin-right: 3%;
         cursor: pointer;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     }
 
     .recipe-filter-title{
@@ -72,7 +46,7 @@
         width: 100px;
         // width: 80px;
         // // margin-right: 4%;
-        font-weight: 500;
+        font-weight: 800;
     }
 
     .breakfast{
@@ -131,9 +105,7 @@
         background-repeat: no-repeat;
     }
 
-    .search-filter-content{
-        background-color: rgb(249 248 248);
-    }
+    
 
     .carousel-control-prev,
     .carousel-control-next {
@@ -175,5 +147,18 @@
         color: rgb(115 64 96/var(--tw-bg-opacity,1));
         font-size: 30px;
         font-weight: lighter;
+    }
+
+    .cuisine-carousel-title{
+        // background: rgb(115 64 96/var(--tw-bg-opacity,1));
+        color: rgba(115, 64, 96, 0.73);
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .filter-text{
+        color: rgb(138, 137, 137);
+        font-size: 14px;
+        font-weight: 800;
     }
 }

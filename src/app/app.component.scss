@@ -10,4 +10,94 @@
             letter-spacing: 2px;
         }
     }
+
+    .home-dashboard-header{
+        border-bottom: 1px solid #DDC5D8;
+        .title{
+            color: rgb(115 64 96 / 73%);
+            letter-spacing: 3px;
+            font-size: 40px;
+            font-weight: 500;
+            // text-shadow: 2px 2px 5px rgb(216, 158, 195);
+            font-family: 'Brush Script MT', cursive;
+        }
+    }
+
+    .pages-url{
+        font-weight: 800;
+        padding-right: 50px;
+        letter-spacing: 2px;
+        cursor: pointer;
+    }
+
+    .search-filter-content{
+        background-color: rgb(249 248 248);
+    }
+
+    // .search-box{
+    //     width: 100%;
+    //     height: 40px;
+    //     padding-left: 12px;
+    // }
+
+    .back-button{
+        cursor: pointer;
+        border: 1px solid rgb(99, 98, 98);
+        width: 100px;
+        border-radius: 3px;
+    }
+
+    .back-button:hover{
+        cursor: pointer;
+        border: 1px solid black;
+        width: 100px;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .back-button-text{
+        font-size: 13px;
+        padding-right: 7px;
+    }
+
+    .back-button-icon{
+        vertical-align: text-top;
+        font-size: 15px;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e6e3e3;
+        padding: 5px;
+        border-radius: 6px;
+        background-color: white;
+      }
+      
+      .search-box {
+        border: none;
+        outline: none;
+        flex: 1;
+        padding: 8px;
+      }
+      
+      .search-icon {
+        color: rgb(193, 191, 191);
+        padding-left: 4px;
+      }
+
+      .close-icon{
+        cursor: pointer;
+        color:rgb(151, 150, 150);
+      }
+      
+      input{
+        // border-radius: 5px;
+        // border: 2px solid rgb(215, 212, 212) !important;
+        // -webkit-transition: 0.5s;
+        // transition: 0.5s;
+        // outline: none;
+        // height: 40px;
+        background: none;
+    }
 }

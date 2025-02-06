@@ -1,24 +1,160 @@
 <div class="container-fluid recipe-details">
-    <div class="row border-bottom">
-        <div class="col-1 pt-3 pb-3 pl-3">
-            <span class="pt-1 pb-1 back-button" (click)="onBackClick()">
-                <mat-icon class="back-button-icon" style="vertical-align: middle; font-size: 20px;">chevron_right</mat-icon>
-                <span class="back-button-text">Back</span>
-            </span>
-        </div>
-        <div class="col p-0 page-heading pt-3">
-            Recipe Overview
-        </div>
-    </div>
-    <div class="row" *ngIf="isRecipeDataFound">
+    <div class="row pl-3" *ngIf="isRecipeDataFound">
         <div class="col main-content">
+            <div class="row pt-4">
+                <div class="col">
+                    <div class="row pt-4">
+                        <div class="col header">{{recipeDetails?.label}}</div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col dietery-labels">
+                            <span *ngFor="let item of recipeDetails?.dietLabels">
+                                <span style="padding-right: 5px; font-size: 30px; font-weight: 800;">.</span>{{item}}
+                            </span>
+                            <span *ngFor="let item of recipeDetails?.healthLabels">
+                                <span style="padding-right: 5px; font-size: 30px; font-weight: 800;">.</span>{{item}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 image-content">
+                    <img src="{{recipeDetails?.image}}">
+                </div>
+            </div>
+            <div class="row p-4">
+                <div class="col-5">
+                    <div class="row">
+                        <div class="col ingredient">
+                            <img class="ingredient-image" src="https://png.pngtree.com/png-clipart/20230217/original/pngtree-set-fruits-basket-isolated-on-white-background-png-image_8957743.png">
+                            <span class="ingredient-text">Ingredients</span>
+                        </div>
+                    </div>
+                    <div class="row" *ngFor="let item of recipeDetails?.ingredientLines">
+                        <div class="ellipsis"><span style="padding-right: 5px; font-size: 40px; font-weight: 800; color: rgb(96 8 63 / 73%);">.</span>
+                            <span style="color: rgb(167, 165, 165); font-weight: 800;">{{item}}</span></div>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-1" style="border-left: 2px solid rgb(180, 178, 178)"></div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="col ingredient">
+                            <img class="ingredient-image" src="https://img.freepik.com/premium-photo/lahmacun-recipe-white-background_971991-13385.jpg">
+                            <span class="ingredient-text">Category</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ellipsis pt-2">
+                            <span style="padding-right: 5px; font-weight: 800; color: rgb(96 8 63 / 73%);">Cuisine Type : </span>
+                            <span style="color: rgb(167, 165, 165); font-weight: 800; text-transform: capitalize;">{{recipeDetails?.cuisineType.join(', ')}}</span>
+                        </div>
+                        <div class="ellipsis pt-2">
+                            <span style="padding-right: 5px; font-weight: 800; color: rgb(96 8 63 / 73%);">Meal Type : </span>
+                            <span style="color: rgb(167, 165, 165); font-weight: 800; text-transform: capitalize;">{{recipeDetails?.mealType.join(', ')}}</span>
+                        </div>
+                        <div class="ellipsis pt-2">
+                            <span style="padding-right: 5px; font-weight: 800; color: rgb(96 8 63 / 73%);">Dish Type : </span>
+                            <span style="color: rgb(167, 165, 165); font-weight: 800; text-transform: capitalize;">{{recipeDetails?.dishType.join(', ')}}</span>
+                        </div>
+                    </div>
+                    <!-- <div class="row" *ngFor="let item of recipeDetails?.ingredientLines">
+                        <div class="ellipsis"><span style="padding-right: 5px; font-size: 40px; font-weight: 800; color: rgb(96 8 63 / 73%);">.</span>
+                            <span style="color: rgb(167, 165, 165); font-weight: 800;">{{item}}</span></div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- <div class="row d-flex justify-content-center align-items-end" style="height: -webkit-fill-available">
+                <div class="col" style="height:100%">
+                    <img style="width: 100px; height: 100px;" 
+                     src="https://i.pinimg.com/736x/1c/08/89/1c08897d8f2780fc1b5e96c1bf0cb80c.jpg" 
+                     alt="Centered Image">
+                </div>
+            </div> -->
+        </div>
+        <div class="col-4 m-3 nutrient-content">
             <div class="row">
-                <div class="col header">{{recipeDetails?.label}}</div>
+                <div class="col p-4">
+                    <div class="row">
+                        <span style="font-weight: 800">{{recipeDetails?.yield}} Servings</span>
+                    </div>
+                    <div class="row pt-4">
+                        <span><span style="font-weight: 800; font-size: 30px">{{recipeDetails?.calories | number: '1.2-2'}}</span> <span style="font-weight: 800"> kcal</span></span>
+                    </div>
+                </div>
+                <div class="col-4 p-0 pt-4">
+                    <img class="balanced-diet-image" src="https://www.pngall.com/wp-content/uploads/5/Diet-PNG-File-Download-Free.png">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col">
+                    <img class="nutrient-image" src="https://wordpresscmsprodstor.blob.core.windows.net/wp-cms/2021/09/39a.webp">
+                    <span class="nutrient-label">Nutrients</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <span style="padding-right: 5px; font-size: 70px; font-weight: 800; color: green">.</span>
+                            <span style="color: grey">{{recipeDetails?.totalNutrients?.PROCNT?.label}}</span>
+                        </div>
+                        <div class="col pt-3">
+                            <span>{{recipeDetails?.totalNutrients?.PROCNT?.quantity | number:'1.2-2'}}</span>
+                            <span style="padding-left:10px">{{recipeDetails?.totalNutrients?.PROCNT?.unit}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <span style="padding-right: 5px; font-size: 70px; font-weight: 800; color: orange">.</span>
+                            <span style="color: grey">{{recipeDetails?.totalNutrients?.FAT?.label}}</span>
+                        </div>
+                        <div class="col pt-3">
+                            <span>{{recipeDetails?.totalNutrients?.FAT?.quantity | number:'1.2-2'}}</span>
+                            <span style="padding-left:10px">{{recipeDetails?.totalNutrients?.FAT?.unit}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <span style="padding-right: 5px; font-size: 70px; font-weight: 800; color: red">.</span>
+                            <span style="color: grey">{{recipeDetails?.totalNutrients?.CHOCDF?.label}}</span>
+                        </div>
+                        <div class="col pt-3">
+                            <span>{{recipeDetails?.totalNutrients?.CHOCDF?.quantity | number:'1.2-2'}}</span>
+                            <span style="padding-left:10px">{{recipeDetails?.totalNutrients?.CHOCDF?.unit}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <span style="padding-right: 5px; font-size: 70px; font-weight: 800; color: blue">.</span>
+                            <span style="color: grey">{{recipeDetails?.totalNutrients?.WATER?.label}}</span>
+                        </div>
+                        <div class="col pt-3">
+                            <span>{{recipeDetails?.totalNutrients?.WATER?.quantity | number:'1.2-2'}}</span>
+                            <span style="padding-left:10px">{{recipeDetails?.totalNutrients?.WATER?.unit}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row all-nutrients p-2">
+                <div *ngFor="let item of recipeDetails?.totalNutrients | keyvalue" class="col-6">
+                    <div class="row pt-2">
+                        <div class="col-6">{{item.key}}</div>
+                        <div class="col-6">
+                            {{ getQuantity(item.value) | number:'1.1-2' }} {{ getUnit(item.value) }}
+                        </div>
+                        <!-- <div class="col-6">{{item?.value?.quantity}} {{item?.value?.unit}}</div> -->
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-3 m-3 nutrient-content">
-            Hi
-        </div>
     </div>
-    <!-- {{recipeDetails | json}} -->
 </div>
