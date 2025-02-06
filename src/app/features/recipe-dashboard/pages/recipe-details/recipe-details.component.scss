@@ -1,0 +1,49 @@
+.recipe-details{
+    font-family: 'Courier New', monospace;
+
+    .back-button{
+        cursor: pointer;
+        border: 1px solid rgb(99, 98, 98);
+        width: 100px;
+        border-radius: 3px;
+    }
+
+    .back-button:hover{
+        cursor: pointer;
+        border: 1px solid black;
+        width: 100px;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .back-button-text{
+        font-size: 13px;
+        padding-right: 7px;
+    }
+
+    .back-button-icon{
+        vertical-align: text-top;
+        font-size: 15px;
+    }
+
+    .border-bottom{
+        border-bottom: 1px solid #DDC5D8;
+    }
+
+    .page-heading{
+        font-weight: 1000;
+        font-size: 20px;
+    }
+
+    .nutrient-content{
+        background: #F3F3F3 !important;
+        border-radius: 7px;
+    }
+
+    .main-content{
+        .header{
+            font-size: 25px;
+            font-weight: 1000;
+        }
+    }
+}

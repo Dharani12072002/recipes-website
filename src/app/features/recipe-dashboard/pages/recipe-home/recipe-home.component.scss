@@ -1,0 +1,179 @@
+.recipe-dashboard{
+    font-family: 'Courier New', monospace;
+
+    .home-dashboard-header{
+        border-bottom: 1px solid #DDC5D8;
+        .title{
+            color: rgb(115 64 96 / 73%);
+            letter-spacing: 3px;
+            font-size: 40px;
+            font-weight: 500;
+            // text-shadow: 2px 2px 5px rgb(216, 158, 195);
+            font-family: 'Brush Script MT', cursive;
+        }
+    }
+
+    .pages-url{
+        font-weight: 800;
+        padding-right: 50px;
+        letter-spacing: 2px;
+    }
+
+    .view-all-recipe{
+        background-color: rgb(115 64 96/var(--tw-bg-opacity,1));
+        color: white;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+
+    .view-all-recipe:hover{
+        background-color: rgb(115 64 96/var(--tw-bg-opacity,1));
+        color: white;
+        font-weight: 800;
+        letter-spacing: 2px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .search-box{
+        width: 100%;
+        height: 40px;
+    }
+
+    input{
+        border-radius: 5px;
+        border: 2px solid rgb(215, 212, 212) !important;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        height: 40px;
+    }
+
+    .recipe-filter{
+        border-radius: 100%;
+        // border: 2px solid #DDC5D8;
+        height: 100px;
+        width: 100px;
+        margin-right: 3%;
+        cursor: pointer;
+    }
+
+    .recipe-filter:hover{
+        border-radius: 100%;
+        // border: 2px solid #DDC5D8;
+        height: 100px;
+        width: 100px;
+        margin-right: 3%;
+        cursor: pointer;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .recipe-filter-title{
+        border-radius: 100%;
+        width: 100px;
+        // width: 80px;
+        // // margin-right: 4%;
+        font-weight: 500;
+    }
+
+    .breakfast{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/brunch-image.png?alt=media&token=584ff03f-22cd-47db-89ef-cc4f8687e270');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .brunch{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/Breakfast-image.jpg?alt=media&token=6c0f48db-4327-4d0a-9e1a-fd338e9bdff9');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .lunch-dinner{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/lunch-pitza.jpg?alt=media&token=b24e77c8-b0fa-4c5a-b9a8-efa24f223ce7');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .snack{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/snack-pitza.jpg?alt=media&token=8952f542-359b-4d02-a3d3-88252bfd821a');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .tea-time{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/tea-time.jpg?alt=media&token=7e738505-5edc-4d43-944e-ddde597188ef');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .drinks{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/drinks.jpg?alt=media&token=be0ec096-a286-4232-a2ff-e107b5c5394e');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .dessert{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/dessert.jpg?alt=media&token=009c5ec4-3701-4672-b234-876bc6aabbd2');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .soup{
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/picloopz-ab847.appspot.com/o/soup.jpg?alt=media&token=a97b61f7-eee8-4dba-bb3f-6bc7e516ef49');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .search-filter-content{
+        background-color: rgb(249 248 248);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+    width: 5%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+    }
+
+    .cuisine-carousel:hover{
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
+        cursor: pointer;
+    }
+
+    .cuisine-carousel-text{
+        color: rgb(115 64 96/var(--tw-bg-opacity,1));
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        font-size: 30px; 
+        font-weight: 600;
+        letter-spacing: 3px;
+        z-index: -1;
+        cursor: pointer;
+    }
+
+    .text-1{
+        font-weight: 1000;
+        font-size: 18px;
+    }
+
+    .text-2{
+        font-family: 'Brush Script MT', cursive;
+        color: rgb(115 64 96/var(--tw-bg-opacity,1));
+        font-size: 30px;
+        font-weight: lighter;
+    }
+}

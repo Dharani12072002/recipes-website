@@ -1,0 +1,24 @@
+<div class="container-fluid recipe-details">
+    <div class="row border-bottom">
+        <div class="col-1 pt-3 pb-3 pl-3">
+            <span class="pt-1 pb-1 back-button" (click)="onBackClick()">
+                <mat-icon class="back-button-icon" style="vertical-align: middle; font-size: 20px;">chevron_right</mat-icon>
+                <span class="back-button-text">Back</span>
+            </span>
+        </div>
+        <div class="col p-0 page-heading pt-3">
+            Recipe Overview
+        </div>
+    </div>
+    <div class="row" *ngIf="isRecipeDataFound">
+        <div class="col main-content">
+            <div class="row">
+                <div class="col header">{{recipeDetails?.label}}</div>
+            </div>
+        </div>
+        <div class="col-3 m-3 nutrient-content">
+            Hi
+        </div>
+    </div>
+    <!-- {{recipeDetails | json}} -->
+</div>

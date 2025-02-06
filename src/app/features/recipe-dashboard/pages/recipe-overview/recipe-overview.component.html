@@ -1,0 +1,65 @@
+<div class="container-fluid recipe-overview">
+    <div class="row border-bottom">
+        <div class="col-1 pt-3 pb-3 pl-3">
+            <span class="pt-1 pb-1 back-button" (click)="onBackClick()">
+                <mat-icon class="back-button-icon" style="vertical-align: middle; font-size: 20px;">chevron_right</mat-icon>
+                <span class="back-button-text">Back</span>
+            </span>
+        </div>
+        <div class="col p-0 page-heading pt-3">
+            Recipe Overview
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let recipeItem of recipeData" class="col-2 p-0 m-5 recipe-card" style="background-color: rgb(245 245 245 / 63%)" 
+        (click)="onRecipeItemClick(recipeItem)">
+            <div class="row">
+                <img src="{{recipeItem?.recipe?.image}}" class="recipe-image">
+            </div>
+            <div class="row recipe-label" style="padding-left: 5px;">
+                <div class="col">
+                    <div class="row recipe-label-main">
+                        <div class="col pt-3 d-flex justify-content-center">
+                            <span class="ellipsis" [matTooltip]="recipeItem?.recipe.label">{{recipeItem?.recipe.label}}</span>
+                        </div>
+                    </div>
+                    <div class="row pt-3 recipe-cuisine">
+                        <div class="col-6" style="color: #999292; padding-left: 25px">Cuisine</div>
+                        <div class="col p-0 ellipsis" [matTooltip]="recipeItem?.recipe?.cuisineType?.join(', ')" style="text-transform: capitalize;">
+                            {{ recipeItem?.recipe?.cuisineType?.join(', ') }}
+                        </div>
+                    </div>
+                    <div class="row recipe-meal-type">
+                        <div class="col-6" style="color: #999292; padding-left: 25px">Meal Type</div>
+                        <div class="col p-0 ellipsis" [matTooltip]="recipeItem?.recipe?.mealType?.join(', ')" style="text-transform: capitalize;">
+                            {{ recipeItem?.recipe?.mealType?.join(', ') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScroll()"
+    >
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+        <div>Hi</div>
+    </div> -->
+</div>

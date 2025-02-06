@@ -1,0 +1,134 @@
+<div class="container-fluid recipe-dashboard">
+    
+    <div class="row pt-4 pb-4 home-dashboard-header">
+        <div class="col-2"> </div>
+        <div class="col-4 p-0">
+            <span class="title">Simply Delicious</span>
+        </div>
+        <div class="col d-flex">
+            <div class="pages-url pt-1">HOME</div>
+            <div class="pages-url pt-1">ABOUT</div>
+            <div class="pages-url pt-1">RECIPES</div>
+            <div class="pages-url pt-1">START HERE</div>
+        </div>
+    </div>
+    <div class="row pt-5 pb-3 search-filter-content">
+        <div class="col-3"></div>
+        <div class="col">
+            <input placeholder="  Seach our recipes" class="search-box">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row search-filter-content">
+        <div class="col d-flex justify-content-center">
+            <span style="padding-right: 20px; color: rgb(159, 157, 157)">Or</span>
+        </div>
+    </div>
+    <div class="row pt-3 pb-3 search-filter-content">
+        <div class="col-3"></div>
+        <div class="col d-flex justify-content-center">
+            <span>
+            <button mat-stroked-button class="ml-3 view-all-recipe" (click)="viewAllRecipes()">
+                <mat-icon>add</mat-icon>
+                VIEW ALL RECIPES</button>
+            </span>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row pt-4 search-filter-content">
+        <div class="col-1"></div>
+        <div class="col-1 recipe-filter breakfast" style="margin-left: 3%" (click)="onFilterChange('breakfast', 'mealType')"></div>
+        <div class="col-1 recipe-filter brunch" (click)="onFilterChange('brunch', 'mealType')"></div>
+        <div class="col-1 recipe-filter lunch-dinner" (click)="onFilterChange('lunch-dinner', 'mealType')"></div>
+        <div class="col-1 recipe-filter snack" (click)="onFilterChange('snack', 'mealType')"></div>
+        <div class="col-1 recipe-filter tea-time" (click)="onFilterChange('tea-time', 'mealType')"></div>
+        <div class="col-1 recipe-filter dessert" (click)="onFilterChange('dessert', 'mealType')"></div>
+        <div class="col-1 recipe-filter drinks" (click)="onFilterChange('drinks', 'dishType')"></div>
+        <div class="col-1 recipe-filter soup" (click)="onFilterChange('soup', 'dishType')"></div>
+        <div class="col"></div>
+    </div>
+    <div class="row pt-3 pb-5 search-filter-content">
+        <div class="col-1"></div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 4%; margin-left: 3%;">Break Fast</div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 1.5%;">Brunch</div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 4.5%;">Lunch/Dinner</div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 3.5%;">Snack</div>
+        <div class="col-1 recipe-filter-title p-0" style="margin-right: 2%;">Tea Time</div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 3.5%;">Desserts</div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 3%;">Drinks</div>
+        <div class="col-1 recipe-filter-title" style="margin-right: 3%;">Soup</div>
+        <div class="col"></div>
+    </div>
+    <div class="row" style="border-bottom: 1px solid #DDC5D8;">
+        <div class="col pt-3 pb-3 d-flex justify-content-center">
+            <span>
+                <span><span class="text-1">SIMPLE RECIPE MADE FOR</span>   <span class="text-2" style="padding-left:10px">real, actual, everyday life</span></span>
+            </span>
+        </div>
+    </div>
+    <div class="row" style="background: (247 247 247/var(--tw-bg-opacity,1))">
+        <div class="col-1"></div>
+        <div class="col" style="height: 30px !important">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" *ngIf="isToShowCuisines" data-bs-interval="3000">
+                <div class="carousel-inner">
+                  <div 
+                    class="carousel-item" 
+                    *ngFor="let group of getGroupedDataForCarousel(); let first = first"
+                    [class.active]="first">
+                    <div class="row">
+                      <div class="col m-5" *ngFor="let img of group" style="position: relative;">
+                        <img src="{{img?.recipe?.image}}" class="d-block w-100 cuisine-carousel" style="border-radius: 10px; opacity: 0.4; width: 100%" alt="Slide Image">
+                        <div class="cuisine-carousel-text">{{img?.recipe?.cuisine}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              
+            <!-- <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/70d/70de9a18eb20f3c48b61eb1544aecef5.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBG%2FsRmg8rdcuJCofD0CIBzbNGuTdHmsg9zWLlJRbHjrAiB67CtNAML1gVohKrYxFD95EjP73hkRQQlOnAs8DdGYsiq5BQhaEAAaDDE4NzAxNzE1MDk4NiIMJNQfXvF2emcDvY%2BFKpYFqRpHFf9%2BgbPce5cNxbYS4V0dXH82h3WFwXyDmKk9Y%2FpsYqnKwK6S%2F%2FDlxyFM0mG6QpJ%2FQkgEwrVpB04iquU9jSmf%2B6YCM%2FJZlR2MBffaL%2ByBf49M0VHRJmfQ6TqVDn5Uy18zji8QvnjnYAOeRWdz3iVThjLoepiWmVyZJmEASi8687wad%2BGsxJR9w%2FT6KtlsIiAbCGATq%2BlGsVIdr013u0Hb%2FTdr2vhLmNpHHmTXAjkC8N45kHQqDuoyLSGQLWXoX1GXg1JNy6Jh0fBHdLtB4UwZaFLyMQq36FP9Mdbo0iXo8meP8F9C%2FLS3P8NCP6jZWBeuFQ6UUfNE00N3p5ak52Ax5FbOxRoxk8BFjH2kC%2FkguQ0pB0Bcu44WK8YKioILJfOSDQ7S%2F33A3%2F5q7Lr%2BYMPnk1JRVmw30wkjEdh1nzGuD7EEPAes9d3V1U8j8aXnRFwYK5U1%2FVFYu34ptLYyZ92ZMX81DXrBeOU3uJ5lPc%2FDdrFcFpS6HOSt%2BFRbvmcLklsPHDgJfwXznVUZDi5L49xjp6%2Ftb6H0v3kWtplH7CiKPKHUsgNNxBpEnUxXVVEXEdlPGrK5l3zaZMtCeXq4iP1JxUeiWxHagAtgHhfcA5T9IvFwXEDxln3H3N7NnvRUPjn7ayljtV3ElxoKIRH%2FQBHNhS7TStTjfm9Ve%2Bvy7ga473CXBQ011aNNZoFvCEOOSFDm7ZU9ss%2FSomtxPvg8AaXacYlo%2B%2BS2%2B6lrgbdu7QpIZ5jMe7CwPHv3KAx9GHsXj8SXwnBm%2B14ths55Y0qxcE8lRxFY2CyNeIn68DYMv3aJhxaU%2F%2FHLXakMrKhpqHeBE2mTsbDyG6hgqPG7sOksgyh0qCVp5DWZYhNeYPgblvfuHOrDLNIwzPCRvQY6sgHSCySRHYNHn0CNfCCCxeWNGX7%2FWhMu1IJi2%2FTB9ywAY70bYUVt8alOykSW4ZzNbt6r3yOckTFXYfX84IXvxSQ5VXqKkBRDAIDzqQhumEcFyf6m9VBaxxB%2FSBwj1beDcHaUu0EOds7%2BI5UBTqKOici3A6gveJA%2Fqr%2Fkl8SxcCMI20Sx4G81thlFkWXaNeDVROYfNw%2Bjnj4MkSOPQI%2FTdDlXKFgrlCmvbwFNbbKitTj5PLW6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250206T085810Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFBJLBMEXN%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=109edf0ff6a3b6b5e93c4bb3d44c49083c81145f741c8989367a70427e136c67" class="d-block w-100" alt="Slide 1">
+                      </div>
+                      <div class="col-md-4">
+                        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/70d/70de9a18eb20f3c48b61eb1544aecef5.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBG%2FsRmg8rdcuJCofD0CIBzbNGuTdHmsg9zWLlJRbHjrAiB67CtNAML1gVohKrYxFD95EjP73hkRQQlOnAs8DdGYsiq5BQhaEAAaDDE4NzAxNzE1MDk4NiIMJNQfXvF2emcDvY%2BFKpYFqRpHFf9%2BgbPce5cNxbYS4V0dXH82h3WFwXyDmKk9Y%2FpsYqnKwK6S%2F%2FDlxyFM0mG6QpJ%2FQkgEwrVpB04iquU9jSmf%2B6YCM%2FJZlR2MBffaL%2ByBf49M0VHRJmfQ6TqVDn5Uy18zji8QvnjnYAOeRWdz3iVThjLoepiWmVyZJmEASi8687wad%2BGsxJR9w%2FT6KtlsIiAbCGATq%2BlGsVIdr013u0Hb%2FTdr2vhLmNpHHmTXAjkC8N45kHQqDuoyLSGQLWXoX1GXg1JNy6Jh0fBHdLtB4UwZaFLyMQq36FP9Mdbo0iXo8meP8F9C%2FLS3P8NCP6jZWBeuFQ6UUfNE00N3p5ak52Ax5FbOxRoxk8BFjH2kC%2FkguQ0pB0Bcu44WK8YKioILJfOSDQ7S%2F33A3%2F5q7Lr%2BYMPnk1JRVmw30wkjEdh1nzGuD7EEPAes9d3V1U8j8aXnRFwYK5U1%2FVFYu34ptLYyZ92ZMX81DXrBeOU3uJ5lPc%2FDdrFcFpS6HOSt%2BFRbvmcLklsPHDgJfwXznVUZDi5L49xjp6%2Ftb6H0v3kWtplH7CiKPKHUsgNNxBpEnUxXVVEXEdlPGrK5l3zaZMtCeXq4iP1JxUeiWxHagAtgHhfcA5T9IvFwXEDxln3H3N7NnvRUPjn7ayljtV3ElxoKIRH%2FQBHNhS7TStTjfm9Ve%2Bvy7ga473CXBQ011aNNZoFvCEOOSFDm7ZU9ss%2FSomtxPvg8AaXacYlo%2B%2BS2%2B6lrgbdu7QpIZ5jMe7CwPHv3KAx9GHsXj8SXwnBm%2B14ths55Y0qxcE8lRxFY2CyNeIn68DYMv3aJhxaU%2F%2FHLXakMrKhpqHeBE2mTsbDyG6hgqPG7sOksgyh0qCVp5DWZYhNeYPgblvfuHOrDLNIwzPCRvQY6sgHSCySRHYNHn0CNfCCCxeWNGX7%2FWhMu1IJi2%2FTB9ywAY70bYUVt8alOykSW4ZzNbt6r3yOckTFXYfX84IXvxSQ5VXqKkBRDAIDzqQhumEcFyf6m9VBaxxB%2FSBwj1beDcHaUu0EOds7%2BI5UBTqKOici3A6gveJA%2Fqr%2Fkl8SxcCMI20Sx4G81thlFkWXaNeDVROYfNw%2Bjnj4MkSOPQI%2FTdDlXKFgrlCmvbwFNbbKitTj5PLW6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250206T085810Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFBJLBMEXN%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=109edf0ff6a3b6b5e93c4bb3d44c49083c81145f741c8989367a70427e136c67" class="d-block w-100" alt="Slide 2">
+                      </div>
+                      <div class="col-md-4">
+                        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/70d/70de9a18eb20f3c48b61eb1544aecef5.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBG%2FsRmg8rdcuJCofD0CIBzbNGuTdHmsg9zWLlJRbHjrAiB67CtNAML1gVohKrYxFD95EjP73hkRQQlOnAs8DdGYsiq5BQhaEAAaDDE4NzAxNzE1MDk4NiIMJNQfXvF2emcDvY%2BFKpYFqRpHFf9%2BgbPce5cNxbYS4V0dXH82h3WFwXyDmKk9Y%2FpsYqnKwK6S%2F%2FDlxyFM0mG6QpJ%2FQkgEwrVpB04iquU9jSmf%2B6YCM%2FJZlR2MBffaL%2ByBf49M0VHRJmfQ6TqVDn5Uy18zji8QvnjnYAOeRWdz3iVThjLoepiWmVyZJmEASi8687wad%2BGsxJR9w%2FT6KtlsIiAbCGATq%2BlGsVIdr013u0Hb%2FTdr2vhLmNpHHmTXAjkC8N45kHQqDuoyLSGQLWXoX1GXg1JNy6Jh0fBHdLtB4UwZaFLyMQq36FP9Mdbo0iXo8meP8F9C%2FLS3P8NCP6jZWBeuFQ6UUfNE00N3p5ak52Ax5FbOxRoxk8BFjH2kC%2FkguQ0pB0Bcu44WK8YKioILJfOSDQ7S%2F33A3%2F5q7Lr%2BYMPnk1JRVmw30wkjEdh1nzGuD7EEPAes9d3V1U8j8aXnRFwYK5U1%2FVFYu34ptLYyZ92ZMX81DXrBeOU3uJ5lPc%2FDdrFcFpS6HOSt%2BFRbvmcLklsPHDgJfwXznVUZDi5L49xjp6%2Ftb6H0v3kWtplH7CiKPKHUsgNNxBpEnUxXVVEXEdlPGrK5l3zaZMtCeXq4iP1JxUeiWxHagAtgHhfcA5T9IvFwXEDxln3H3N7NnvRUPjn7ayljtV3ElxoKIRH%2FQBHNhS7TStTjfm9Ve%2Bvy7ga473CXBQ011aNNZoFvCEOOSFDm7ZU9ss%2FSomtxPvg8AaXacYlo%2B%2BS2%2B6lrgbdu7QpIZ5jMe7CwPHv3KAx9GHsXj8SXwnBm%2B14ths55Y0qxcE8lRxFY2CyNeIn68DYMv3aJhxaU%2F%2FHLXakMrKhpqHeBE2mTsbDyG6hgqPG7sOksgyh0qCVp5DWZYhNeYPgblvfuHOrDLNIwzPCRvQY6sgHSCySRHYNHn0CNfCCCxeWNGX7%2FWhMu1IJi2%2FTB9ywAY70bYUVt8alOykSW4ZzNbt6r3yOckTFXYfX84IXvxSQ5VXqKkBRDAIDzqQhumEcFyf6m9VBaxxB%2FSBwj1beDcHaUu0EOds7%2BI5UBTqKOici3A6gveJA%2Fqr%2Fkl8SxcCMI20Sx4G81thlFkWXaNeDVROYfNw%2Bjnj4MkSOPQI%2FTdDlXKFgrlCmvbwFNbbKitTj5PLW6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250206T085810Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFBJLBMEXN%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=109edf0ff6a3b6b5e93c4bb3d44c49083c81145f741c8989367a70427e136c67" class="d-block w-100" alt="Slide 3">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/70d/70de9a18eb20f3c48b61eb1544aecef5.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBG%2FsRmg8rdcuJCofD0CIBzbNGuTdHmsg9zWLlJRbHjrAiB67CtNAML1gVohKrYxFD95EjP73hkRQQlOnAs8DdGYsiq5BQhaEAAaDDE4NzAxNzE1MDk4NiIMJNQfXvF2emcDvY%2BFKpYFqRpHFf9%2BgbPce5cNxbYS4V0dXH82h3WFwXyDmKk9Y%2FpsYqnKwK6S%2F%2FDlxyFM0mG6QpJ%2FQkgEwrVpB04iquU9jSmf%2B6YCM%2FJZlR2MBffaL%2ByBf49M0VHRJmfQ6TqVDn5Uy18zji8QvnjnYAOeRWdz3iVThjLoepiWmVyZJmEASi8687wad%2BGsxJR9w%2FT6KtlsIiAbCGATq%2BlGsVIdr013u0Hb%2FTdr2vhLmNpHHmTXAjkC8N45kHQqDuoyLSGQLWXoX1GXg1JNy6Jh0fBHdLtB4UwZaFLyMQq36FP9Mdbo0iXo8meP8F9C%2FLS3P8NCP6jZWBeuFQ6UUfNE00N3p5ak52Ax5FbOxRoxk8BFjH2kC%2FkguQ0pB0Bcu44WK8YKioILJfOSDQ7S%2F33A3%2F5q7Lr%2BYMPnk1JRVmw30wkjEdh1nzGuD7EEPAes9d3V1U8j8aXnRFwYK5U1%2FVFYu34ptLYyZ92ZMX81DXrBeOU3uJ5lPc%2FDdrFcFpS6HOSt%2BFRbvmcLklsPHDgJfwXznVUZDi5L49xjp6%2Ftb6H0v3kWtplH7CiKPKHUsgNNxBpEnUxXVVEXEdlPGrK5l3zaZMtCeXq4iP1JxUeiWxHagAtgHhfcA5T9IvFwXEDxln3H3N7NnvRUPjn7ayljtV3ElxoKIRH%2FQBHNhS7TStTjfm9Ve%2Bvy7ga473CXBQ011aNNZoFvCEOOSFDm7ZU9ss%2FSomtxPvg8AaXacYlo%2B%2BS2%2B6lrgbdu7QpIZ5jMe7CwPHv3KAx9GHsXj8SXwnBm%2B14ths55Y0qxcE8lRxFY2CyNeIn68DYMv3aJhxaU%2F%2FHLXakMrKhpqHeBE2mTsbDyG6hgqPG7sOksgyh0qCVp5DWZYhNeYPgblvfuHOrDLNIwzPCRvQY6sgHSCySRHYNHn0CNfCCCxeWNGX7%2FWhMu1IJi2%2FTB9ywAY70bYUVt8alOykSW4ZzNbt6r3yOckTFXYfX84IXvxSQ5VXqKkBRDAIDzqQhumEcFyf6m9VBaxxB%2FSBwj1beDcHaUu0EOds7%2BI5UBTqKOici3A6gveJA%2Fqr%2Fkl8SxcCMI20Sx4G81thlFkWXaNeDVROYfNw%2Bjnj4MkSOPQI%2FTdDlXKFgrlCmvbwFNbbKitTj5PLW6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250206T085810Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFBJLBMEXN%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=109edf0ff6a3b6b5e93c4bb3d44c49083c81145f741c8989367a70427e136c67" class="d-block w-100" alt="Slide 4">
+                      </div>
+                      <div class="col-md-4">
+                        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/70d/70de9a18eb20f3c48b61eb1544aecef5.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBG%2FsRmg8rdcuJCofD0CIBzbNGuTdHmsg9zWLlJRbHjrAiB67CtNAML1gVohKrYxFD95EjP73hkRQQlOnAs8DdGYsiq5BQhaEAAaDDE4NzAxNzE1MDk4NiIMJNQfXvF2emcDvY%2BFKpYFqRpHFf9%2BgbPce5cNxbYS4V0dXH82h3WFwXyDmKk9Y%2FpsYqnKwK6S%2F%2FDlxyFM0mG6QpJ%2FQkgEwrVpB04iquU9jSmf%2B6YCM%2FJZlR2MBffaL%2ByBf49M0VHRJmfQ6TqVDn5Uy18zji8QvnjnYAOeRWdz3iVThjLoepiWmVyZJmEASi8687wad%2BGsxJR9w%2FT6KtlsIiAbCGATq%2BlGsVIdr013u0Hb%2FTdr2vhLmNpHHmTXAjkC8N45kHQqDuoyLSGQLWXoX1GXg1JNy6Jh0fBHdLtB4UwZaFLyMQq36FP9Mdbo0iXo8meP8F9C%2FLS3P8NCP6jZWBeuFQ6UUfNE00N3p5ak52Ax5FbOxRoxk8BFjH2kC%2FkguQ0pB0Bcu44WK8YKioILJfOSDQ7S%2F33A3%2F5q7Lr%2BYMPnk1JRVmw30wkjEdh1nzGuD7EEPAes9d3V1U8j8aXnRFwYK5U1%2FVFYu34ptLYyZ92ZMX81DXrBeOU3uJ5lPc%2FDdrFcFpS6HOSt%2BFRbvmcLklsPHDgJfwXznVUZDi5L49xjp6%2Ftb6H0v3kWtplH7CiKPKHUsgNNxBpEnUxXVVEXEdlPGrK5l3zaZMtCeXq4iP1JxUeiWxHagAtgHhfcA5T9IvFwXEDxln3H3N7NnvRUPjn7ayljtV3ElxoKIRH%2FQBHNhS7TStTjfm9Ve%2Bvy7ga473CXBQ011aNNZoFvCEOOSFDm7ZU9ss%2FSomtxPvg8AaXacYlo%2B%2BS2%2B6lrgbdu7QpIZ5jMe7CwPHv3KAx9GHsXj8SXwnBm%2B14ths55Y0qxcE8lRxFY2CyNeIn68DYMv3aJhxaU%2F%2FHLXakMrKhpqHeBE2mTsbDyG6hgqPG7sOksgyh0qCVp5DWZYhNeYPgblvfuHOrDLNIwzPCRvQY6sgHSCySRHYNHn0CNfCCCxeWNGX7%2FWhMu1IJi2%2FTB9ywAY70bYUVt8alOykSW4ZzNbt6r3yOckTFXYfX84IXvxSQ5VXqKkBRDAIDzqQhumEcFyf6m9VBaxxB%2FSBwj1beDcHaUu0EOds7%2BI5UBTqKOici3A6gveJA%2Fqr%2Fkl8SxcCMI20Sx4G81thlFkWXaNeDVROYfNw%2Bjnj4MkSOPQI%2FTdDlXKFgrlCmvbwFNbbKitTj5PLW6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250206T085810Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFBJLBMEXN%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=109edf0ff6a3b6b5e93c4bb3d44c49083c81145f741c8989367a70427e136c67" class="d-block w-100" alt="Slide 5">
+                      </div>
+                      <div class="col-md-4">
+                        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/70d/70de9a18eb20f3c48b61eb1544aecef5.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEEaCXVzLWVhc3QtMSJGMEQCIBG%2FsRmg8rdcuJCofD0CIBzbNGuTdHmsg9zWLlJRbHjrAiB67CtNAML1gVohKrYxFD95EjP73hkRQQlOnAs8DdGYsiq5BQhaEAAaDDE4NzAxNzE1MDk4NiIMJNQfXvF2emcDvY%2BFKpYFqRpHFf9%2BgbPce5cNxbYS4V0dXH82h3WFwXyDmKk9Y%2FpsYqnKwK6S%2F%2FDlxyFM0mG6QpJ%2FQkgEwrVpB04iquU9jSmf%2B6YCM%2FJZlR2MBffaL%2ByBf49M0VHRJmfQ6TqVDn5Uy18zji8QvnjnYAOeRWdz3iVThjLoepiWmVyZJmEASi8687wad%2BGsxJR9w%2FT6KtlsIiAbCGATq%2BlGsVIdr013u0Hb%2FTdr2vhLmNpHHmTXAjkC8N45kHQqDuoyLSGQLWXoX1GXg1JNy6Jh0fBHdLtB4UwZaFLyMQq36FP9Mdbo0iXo8meP8F9C%2FLS3P8NCP6jZWBeuFQ6UUfNE00N3p5ak52Ax5FbOxRoxk8BFjH2kC%2FkguQ0pB0Bcu44WK8YKioILJfOSDQ7S%2F33A3%2F5q7Lr%2BYMPnk1JRVmw30wkjEdh1nzGuD7EEPAes9d3V1U8j8aXnRFwYK5U1%2FVFYu34ptLYyZ92ZMX81DXrBeOU3uJ5lPc%2FDdrFcFpS6HOSt%2BFRbvmcLklsPHDgJfwXznVUZDi5L49xjp6%2Ftb6H0v3kWtplH7CiKPKHUsgNNxBpEnUxXVVEXEdlPGrK5l3zaZMtCeXq4iP1JxUeiWxHagAtgHhfcA5T9IvFwXEDxln3H3N7NnvRUPjn7ayljtV3ElxoKIRH%2FQBHNhS7TStTjfm9Ve%2Bvy7ga473CXBQ011aNNZoFvCEOOSFDm7ZU9ss%2FSomtxPvg8AaXacYlo%2B%2BS2%2B6lrgbdu7QpIZ5jMe7CwPHv3KAx9GHsXj8SXwnBm%2B14ths55Y0qxcE8lRxFY2CyNeIn68DYMv3aJhxaU%2F%2FHLXakMrKhpqHeBE2mTsbDyG6hgqPG7sOksgyh0qCVp5DWZYhNeYPgblvfuHOrDLNIwzPCRvQY6sgHSCySRHYNHn0CNfCCCxeWNGX7%2FWhMu1IJi2%2FTB9ywAY70bYUVt8alOykSW4ZzNbt6r3yOckTFXYfX84IXvxSQ5VXqKkBRDAIDzqQhumEcFyf6m9VBaxxB%2FSBwj1beDcHaUu0EOds7%2BI5UBTqKOici3A6gveJA%2Fqr%2Fkl8SxcCMI20Sx4G81thlFkWXaNeDVROYfNw%2Bjnj4MkSOPQI%2FTdDlXKFgrlCmvbwFNbbKitTj5PLW6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250206T085810Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFBJLBMEXN%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=109edf0ff6a3b6b5e93c4bb3d44c49083c81145f741c8989367a70427e136c67" class="d-block w-100" alt="Slide 6">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div> -->
+            
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
