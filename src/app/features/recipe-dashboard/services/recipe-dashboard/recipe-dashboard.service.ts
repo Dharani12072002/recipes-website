@@ -12,7 +12,7 @@ export class RecipeDashboardService {
   getCusineData(cuisine: any){
     try{
       return new Promise((resolve,reject)=>{
-        this.http.get(`https://api.edamam.com/search?q=pizza&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=1&cuisineType=${cuisine}`,)
+        this.http.get(`https://api.edamam.com/search?q=pizza&app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&from=0&to=1&cuisineType=${cuisine}`,)
         .subscribe({
           next: (res: any)=> {
             return resolve(res)
@@ -31,9 +31,9 @@ export class RecipeDashboardService {
   getRecipeDetailsForFilter(params: any, type: any){
     try{
       return new Promise((resolve,reject)=>{
-        let url = `https://api.edamam.com/search?q=pizza&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20&${type}=${params}`;
+        let url = `https://api.edamam.com/search?q=pizza&app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&from=0&to=20&${type}=${params}`;
         if (type == 'dishType'){
-          url = `https://api.edamam.com/search?q=''&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20&${type}=${params}`
+          url = `https://api.edamam.com/search?q=''&app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&from=0&to=20&${type}=${params}`
         }
         this.http.get(url,)
         .subscribe({
@@ -54,7 +54,7 @@ export class RecipeDashboardService {
   getAllRecipeDetails(){
     try{
       return new Promise((resolve,reject)=>{
-        this.http.get(`https://api.edamam.com/search?q=pizza&app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20`,)
+        this.http.get(`https://api.edamam.com/search?q=pizza&app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&from=0&to=20`,)
         .subscribe({
           next: (res: any)=> {
             return resolve(res)
@@ -73,7 +73,7 @@ export class RecipeDashboardService {
   getRecipeDataOnSearch(searchData: any){
     try{
       return new Promise((resolve,reject)=>{
-        this.http.get(`https://api.edamam.com/search?app_id=a5de3521&app_key=28f8a20bd893e2740e68d4bbb349b977&from=0&to=20&q=pizza,%20${searchData}`,)
+        this.http.get(`https://api.edamam.com/search?app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9&from=0&to=20&q=pizza,%20${searchData}`,)
         .subscribe({
           next: (res: any)=> {
             return resolve(res)
@@ -95,4 +95,5 @@ export class RecipeDashboardService {
   getSelectedRecipeDetails(recipeData:any){
     this.recipeDataSubject.next(recipeData);
   }
+  // app_id=900da95e&app_key=40698503668e0bb3897581f4766d77f9
 }
